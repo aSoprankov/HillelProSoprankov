@@ -1,10 +1,8 @@
 package homework.hw3.task;
 
 public class Task1 {
-    private static int[] values;
-
     public static void displayOddNumbers() {
-        values = new int[100];
+        int[] values = new int[100];
 
         for (int value : values) {
             values[value]++;
