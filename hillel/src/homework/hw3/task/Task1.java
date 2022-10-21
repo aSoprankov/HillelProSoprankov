@@ -1,6 +1,6 @@
 package homework.hw3.task;
 
-public class Task1 {
+public abstract class Task1 {
     public static void displayOddNumbers() {
         int[] values = new int[100];
 
@@ -11,6 +11,6 @@ public class Task1 {
                 System.out.print(values[value] + " ");
             }
         }
-        System.out.println();
+        System.out.println("\n");
     }
 }
