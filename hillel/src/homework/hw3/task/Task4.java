@@ -4,6 +4,10 @@ import java.util.Scanner;
 
 public class Task4 {
     public static void displayOddNumbers() {
+        System.out.print("""
+                \s
+                TASK 4. Rewrite programs using a do - while loop.\s
+                Array:\040""");
         int[] values = new int[100];
         int counter = 0;
 
@@ -13,27 +17,27 @@ public class Task4 {
             }
             counter++;
         } while (counter != values.length);
-
-        System.out.println("\n");
     }
 
-    public static void calculateFactorial() {
-        System.out.print("n: ");
-        int[] values = new int[new Scanner(System.in).nextInt()];
+    public static void calculateFactorial(Scanner scanner) {
+        System.out.print("""
+                \s
+                TASK 4.2. (!) For correct calculations, enter a value from 0 to 20.\s
+                Enter N:\040""");
+        int[] values = new int[scanner.nextInt()];
         int counter = 0;
-        int factorial = 1;
+        long factorial = 1;
 
         do {
             if (values.length < 1) {
                 factorial = 0;
                 break;
             }
-
             values[counter] = counter + 1;
             factorial += factorial * values[counter] - factorial;
             counter++;
         } while (counter != values.length);
 
-        System.out.println(factorial + "\n");
+        System.out.println("Factorial = " + factorial + "\n");
     }
 }
