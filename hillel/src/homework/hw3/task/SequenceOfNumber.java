@@ -2,7 +2,7 @@ package homework.hw3.task;
 
 import java.util.Arrays;
 
-public abstract class Task6 {
+public abstract class SequenceOfNumber {
     public static void outputSequenceOfNumbers() {
         System.out.println("""
                 \s

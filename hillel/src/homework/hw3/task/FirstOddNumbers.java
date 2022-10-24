@@ -1,6 +1,6 @@
 package homework.hw3.task;
 
-public abstract class Task8 {
+public abstract class FirstOddNumbers {
     public static void outputAnArrayOfValues() {
         System.out.print("""
                 \s

@@ -1,6 +1,6 @@
 package homework.hw3.task;
 
-public abstract class Task13 {
+public abstract class ChessBoard {
     public static void printChessBoard() {
         int size = 8;
         char[][] chessBoard = new char[size][size];

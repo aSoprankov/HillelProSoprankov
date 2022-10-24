@@ -2,7 +2,7 @@ package homework.hw3.task;
 
 import java.util.Scanner;
 
-public abstract class Task7 {
+public abstract class MultiplicationTable {
     public static void printMultiplicationTable(Scanner scanner) {
         System.out.print("""
                 \s

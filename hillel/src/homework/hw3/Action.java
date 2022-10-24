@@ -9,6 +9,10 @@ public abstract class Action {
     private static final Scanner SCANNER = new Scanner(System.in);
     private static final Random RANDOM = new Random();
 
+    public static void main(String[] args) {
+        action();
+    }
+
     public static void action() {
         System.out.print("""
                 Menu Homework #3\s
@@ -17,71 +21,71 @@ public abstract class Action {
                 [3] - complete task1 and task2 using while\s
                 [4] - complete task1 and task2 using do-while\s
                 [5] - exponentiation\s
-                [6] - output sequence of numbers\s
-                [7] - printMultiplicationTable\s
-                [8] - outputAnArrayOfValues\s
-                [9] - findingSmallestNumber\s
-                [10] - findLargestNumber\s
-                [11] - swapElements\s
-                [12] - findArithmeticMeanOfAllElements\s
-                [13] - printChessBoard\s
+                [6] - output sequence of number\s
+                [7] - print multiplication table\s
+                [8] - output an array of values\s
+                [9] - finding smallest number\s
+                [10] - finding largest number\s
+                [11] - swap elements\s
+                [12] - find arithmetic mean of all elements\s
+                [13] - print chess board\s
                 [E] - Exit\s
                 Input your choice:\040""");
         String choice = SCANNER.next().toUpperCase();
 
         switch (choice) {
             case "1" -> {
-                Task1.displayOddNumbers();
+                DisplayOddNumbers.displayOddNumbers();
                 action();
             }
             case "2" -> {
-                Task2.calculateFactorial(SCANNER);
+                CalculateFactorial.calculateFactorial(SCANNER);
                 action();
             }
             case "3" -> {
-                Task3.displayOddNumbers();
-                Task3.calculateFactorial(SCANNER);
+                OddNumbersAndFactorianUseWhile.displayOddNumbers();
+                OddNumbersAndFactorianUseWhile.calculateFactorial(SCANNER);
                 action();
             }
             case "4" -> {
-                Task4.displayOddNumbers();
-                Task4.calculateFactorial(SCANNER);
+                OddNumbersAndFactorianUseDoWhile.displayOddNumbers();
+                OddNumbersAndFactorianUseDoWhile.calculateFactorial(SCANNER);
                 action();
             }
             case "5" -> {
-                Task5.exponentiation(SCANNER);
+                Exponenriation.exponentiation(SCANNER);
                 action();
             }
             case "6" -> {
-                Task6.outputSequenceOfNumbers();
+                SequenceOfNumber.outputSequenceOfNumbers();
                 action();
             }
             case "7" -> {
-                Task7.printMultiplicationTable(SCANNER);
+                MultiplicationTable.printMultiplicationTable(SCANNER);
                 action();
             }
             case "8" -> {
-                Task8.outputAnArrayOfValues();
+                FirstOddNumbers.outputAnArrayOfValues();
                 action();
             }
             case "9" -> {
-                Task9.findingSmallestNumber();
+                SmallestNumber.findingSmallestNumber();
                 action();
             }
             case "10" -> {
-                Task10.findLargestNumber();
+                LargestNumber.findLargestNumber();
                 action();
             }
             case "11" -> {
-                Task11.swapElements(createArray());
+                SwapElements.swapElements(createArray());
                 action();
             }
             case "12" -> {
-                Task12.findArithmeticMeanOfAllElements(createArray());
+                ArithmeticMeanOfAllElements.findArithmeticMeanOfAllElements(createArray());
                 action();
             }
             case "13" -> {
-                Task13.printChessBoard();
+                ChessBoard.printChessBoard();
                 action();
             }
             case "E" -> System.exit(0);

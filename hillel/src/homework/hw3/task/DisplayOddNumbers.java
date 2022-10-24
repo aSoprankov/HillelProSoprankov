@@ -1,6 +1,6 @@
 package homework.hw3.task;
 
-public abstract class Task1 {
+public abstract class DisplayOddNumbers {
     public static void displayOddNumbers() {
         System.out.print("""
                 \s

@@ -2,7 +2,7 @@ package homework.hw3.task;
 
 import java.util.Scanner;
 
-public class Task4 {
+public class OddNumbersAndFactorianUseDoWhile {
     public static void displayOddNumbers() {
         System.out.print("""
                 \s

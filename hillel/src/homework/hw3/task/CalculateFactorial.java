@@ -2,7 +2,7 @@ package homework.hw3.task;
 
 import java.util.Scanner;
 
-public abstract class Task2 {
+public abstract class CalculateFactorial {
     public static void calculateFactorial(Scanner scanner) {
         System.out.print("""
                 \s

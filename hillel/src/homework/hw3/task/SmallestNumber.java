@@ -4,7 +4,7 @@ import homework.hw3.Action;
 
 import java.util.Arrays;
 
-public abstract class Task9 {
+public abstract class SmallestNumber {
     private static int[] array = new int[0];
 
     public static void setArray() {

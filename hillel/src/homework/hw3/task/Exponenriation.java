@@ -2,7 +2,7 @@ package homework.hw3.task;
 
 import java.util.Scanner;
 
-public class Task5 {
+public class Exponenriation {
     public static void exponentiation(Scanner scanner) {
         System.out.print("\nTASK 5. Enter X and N values and calculate X^N.\nEnter X: ");
         int x = scanner.nextInt();

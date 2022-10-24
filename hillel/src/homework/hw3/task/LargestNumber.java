@@ -1,7 +1,7 @@
 package homework.hw3.task;
 
-public abstract class Task10 {
-    private static final int[] ARRAY = Task9.getArray();
+public abstract class LargestNumber {
+    private static final int[] ARRAY = SmallestNumber.getArray();
     public static void findLargestNumber() {
         int counter = 1;
         System.out.println("\nTASK 10. In the array from task 9. find the largest element.");

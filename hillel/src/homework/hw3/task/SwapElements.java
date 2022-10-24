@@ -2,7 +2,7 @@ package homework.hw3.task;
 
 import java.util.Arrays;
 
-public abstract class Task11 {
+public abstract class SwapElements {
    public static void swapElements(int[] array) {
        System.out.println("\nTASK 11. Swap the largest and smallest elements of an array.");
        int min = Integer.MAX_VALUE;

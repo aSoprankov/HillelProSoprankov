@@ -2,7 +2,7 @@ package homework.hw3.task;
 
 import java.util.Arrays;
 
-public abstract class Task12 {
+public abstract class ArithmeticMeanOfAllElements {
     public static void findArithmeticMeanOfAllElements(int[] array) {
         float result = 0;
 
