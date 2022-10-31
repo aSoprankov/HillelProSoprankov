@@ -1,6 +1,6 @@
 package homework.hw4;
 
-public class CarService extends CarTest {
+public class CarService extends Car {
 
     private float fillTheTank(float distance) {    //заправить
         float refuel = getTank() - getRemainder();

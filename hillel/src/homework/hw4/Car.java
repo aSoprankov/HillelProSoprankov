@@ -1,58 +1,31 @@
 package homework.hw4;
 
 public class Car {
-    private final float VOLUME_OF_THE_TANK;
-    private final float FUEL_CONSUMPTION;
-    private float fuelInTank;
+    private float tank = 40;
+    private float consumption = 8.3f;
+    private float remainder = 30f;
 
-    public Car(float VOLUME_OF_THE_TANK, float FUEL_CONSUMPTION, float fuelInTank) {
-        this.VOLUME_OF_THE_TANK = VOLUME_OF_THE_TANK;
-        this.FUEL_CONSUMPTION = FUEL_CONSUMPTION;
-        this.fuelInTank = fuelInTank;
+    public float getTank() {
+        return tank;
     }
 
-    public float getFuelConsumption() {
-        return FUEL_CONSUMPTION;
+    public void setTank(float tank) {
+        this.tank = tank;
     }
 
-    public float getFuelInTank() {
-        return fuelInTank;
+    public float getConsumption() {
+        return consumption;
     }
 
-    public float fillFullTank(float price) {
-        float refuel = 0;
-        System.out.println("Fuel in the tank: " + fuelInTank + " l");
-
-        if (fuelInTank < VOLUME_OF_THE_TANK) {
-            refuel = VOLUME_OF_THE_TANK - fuelInTank;
-            System.out.println("Refueling at " + refuel + " l" +
-                    "\nRefueling cost: " + String.format("%.2f", (refuel * price)) + " UAH");
-        } else {
-            System.out.println("Tank full");
-        }
-        fuelInTank = VOLUME_OF_THE_TANK;
-        System.out.println("Fuel in the tank after refueling: " + fuelInTank + " l\n");
-
-        return refuel;
+    public void setConsumption(float consumption) {
+        this.consumption = consumption;
     }
 
-    public void findRemainingFuel(float fuelQuantity) {
-        if (fuelInTank > fuelQuantity) {
-            float remaining = fuelInTank - fuelQuantity;
-            fuelInTank -= fuelQuantity;
-            System.out.println("Amount of fuel after this trip: " + String.format("%.2f", remaining) + " l\n");
-        }
+    public float getRemainder() {
+        return remainder;
     }
 
-    public float findHowMuchToFillUp(float fuelQuantity, float fuelCost) {
-        float refuel = 0;
-
-        if (fuelInTank < fuelQuantity) {
-            refuel = fuelQuantity - fuelInTank;
-            System.out.println("Need to refuel: " + String.format("%.2f",refuel) + " l" +
-                    "\nRefueling cost: " + String.format("%.2f", (refuel * fuelCost)) + " UAH\n");
-        }
-
-        return refuel * fuelCost;
+    public void setRemainder(float remainder) {
+        this.remainder = remainder;
     }
 }
