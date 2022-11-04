@@ -19,7 +19,7 @@ public abstract class UserBase {
                 "Kyiv", "+38 (097) 647 34 12", "A004", 134.2f, 336,
                 0, 10000);
         userBase[4] = new Subscriber("005", "Timur", "Kirichenko", "Stanisvalovoch",
-                "Odessa", "+38 (097) 321 56 79", "A005", 17.67f, 1586,
+                "Odesa", "+38 (097) 321 56 79", "A005", 17.67f, 1586,
                 0, 6000);
         userBase[5] = new Subscriber("006", "Valeriy", "Ignatenko", "Maksimovich",
                 "Kharkiv", "+38 (097) 637 12 64", "A006", 92.5f, 1236,
@@ -34,7 +34,7 @@ public abstract class UserBase {
                 "Chernihiv", "+38 (097) 157 78 23", "A009", -0.13f, 1369,
                 0, 2000);
         userBase[9] = new Subscriber("010", "Katerina", "Ivanenko", "Vladislavovna",
-                "Odessa", "+38 (097) 167 27 37", "A010", 13.38f, 3671,
+                "Odesa", "+38 (097) 167 27 37", "A010", 13.38f, 3671,
                 361, 5000);
         return userBase;
     }

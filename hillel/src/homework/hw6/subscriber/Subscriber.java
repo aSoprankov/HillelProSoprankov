@@ -146,8 +146,8 @@ public class Subscriber {
             }
             case 5 -> {
                 result = "Identifier: " + identifier + "\nContract number: №" + contractNumber +
-                        "\nFull name: " + surname + " " + name + " " + patronymic + "\nCity: " + city +
-                        "\nPhone number: " + phone + "\nBalance: " + balance + " UAH\n";
+                        "\nFull name: " + surname + " " + name + " " + patronymic + "\nPhone number: " + phone +
+                        "\nBalance: " + balance + " UAH\n";
             }
         }
         return result;

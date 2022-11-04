@@ -1,12 +1,16 @@
 package homework.hw6;
 
+import homework.hw6.subscriber.Subscriber;
 import homework.hw6.subscriber.SubscriberServiceImpl;
+import homework.hw6.subscriber.UserBase;
 
 import java.util.Scanner;
 
 public class Main {
     private static final Scanner scanner = new Scanner(System.in);
     private static final SubscriberServiceImpl ssi = new SubscriberServiceImpl();
+
+    private static final Subscriber[] userBase = UserBase.createUserBase();
 
     public static void main(String[] args) {
         action();
@@ -27,11 +31,12 @@ public class Main {
 
         switch (userChoice) {
             case "1" -> {
-                System.out.println("""
+                System.out.print("""
                         - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
                         Display users who exceed city call:
-                        - - - - - - - - - - - - - - - - - - - - - - - - - - - - -""");
-                ssi.displayUsersWhoExceedCityCall();
+                        - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+                        Input time:\040""");
+                ssi.displayUsersWhoExceedCityCall(userBase, scanner.nextInt());
                 action();
             }
             case "2" -> {
@@ -39,23 +44,30 @@ public class Main {
                         - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
                         Display users who used intercity call:
                         - - - - - - - - - - - - - - - - - - - - - - - - - - - - -""");
-                ssi.displayUsersWhoUsedIntercityCall();
+                ssi.displayUsersWhoUsedIntercityCall(userBase);
                 action();
             }
             case "3" -> {
-                System.out.println("""
+                System.out.print("""
                         - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
                         Display users by first letter of surname:
-                        - - - - - - - - - - - - - - - - - - - - - - - - - - - - -""");
-                ssi.displayUsersByFirstLetterOfSurname();
+                        - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+                        Input letter:\040""");
+                ssi.displayUsersByFirstLetterOfSurname(userBase, scanner.next());
                 action();
             }
             case "4" -> {
-                System.out.println("""
+                System.out.print("""
                         - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
                         Display internet traffic consumption in city:
-                        - - - - - - - - - - - - - - - - - - - - - - - - - - - - -""");
-                ssi.displayInternetTrafficConsumptionInCity();
+                        - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+                        Kyiv | Chernihiv | Lviv | Odesa | Kharkiv
+                        Input city:\040""");
+                int traffic = ssi.displayInternetTrafficConsumptionInCity(userBase, scanner.next());
+
+                if (traffic > 0) {
+                    System.out.println("\nTotal internet trafic in city: " + traffic / 1000 + " Gb");
+                }
                 action();
             }
             case "5" -> {
@@ -63,7 +75,8 @@ public class Main {
                         - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
                         Display number of users with negative balance:
                         - - - - - - - - - - - - - - - - - - - - - - - - - - - - -""");
-                ssi.displayNumberOfUsersWithNegativeBalance();
+                int counter = ssi.displayNumberOfUsersWithNegativeBalance(userBase);
+                System.out.println("Users with negative balance: " + counter);
                 action();
             }
             case "E" -> {
