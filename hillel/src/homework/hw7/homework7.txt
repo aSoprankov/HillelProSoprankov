@@ -1,0 +1,9 @@
+Реализовать простую коллекцию для String на базе массива.
+
+Реализовать следующие методы для работы с коллекцией:
+
+1. boolean add(int index, String value);
+2. boolean add(String value);
+3. boolean delete(int index);
+4. boolean delete(String value);
+5. String get(int index);
