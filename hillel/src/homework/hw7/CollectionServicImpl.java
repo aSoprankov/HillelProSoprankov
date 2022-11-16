@@ -4,12 +4,19 @@ import java.util.Arrays;
 
 public class CollectionServicImpl extends Collection implements ArrayService {
 
+    private int counter;
+
     public CollectionServicImpl(int size) {
         super(size);
     }
 
     @Override
     public boolean add(int index, String string) {
+        if (!checkIndext(index)) {
+            System.out.println("Exception in thread 'main' java.lang.ArrayIndexOutOfBoundsException");
+            return false;
+        }
+
         if (index < collection.length - 1) {
             collection[index] = string;
             return true;
@@ -25,7 +32,7 @@ public class CollectionServicImpl extends Collection implements ArrayService {
 
     @Override
     public boolean add(String string) {
-        int counter = 0;
+        counter = 0;
 
         for (int i = 0; i < collection.length; i++) {
             if (collection[i] == null) break;
@@ -47,7 +54,10 @@ public class CollectionServicImpl extends Collection implements ArrayService {
 
     @Override
     public boolean delete(int index) {
-        if (index > collection.length) return false;
+        if (!checkIndext(index)) {
+            System.out.println("Exception in thread 'main' java.lang.ArrayIndexOutOfBoundsException");
+            return false;
+        }
 
         String[] tmp = new String[collection.length - 1];
         System.arraycopy(collection, 0, tmp, 0, index);
@@ -63,7 +73,7 @@ public class CollectionServicImpl extends Collection implements ArrayService {
     @Override
     public boolean delete(String string) {
         String[] tmp = new String[collection.length];
-        int tmpCounter = 0;
+        counter = 0;
         int sizeNewArray = 0;
         int checkValue = 0;
 
@@ -76,8 +86,8 @@ public class CollectionServicImpl extends Collection implements ArrayService {
 
         for (int i = 0; i < collection.length; i++) {
             if (collection[i] == null || !collection[i].equals(string)) {
-                tmp[tmpCounter] = collection[i];
-                tmpCounter++;
+                tmp[counter] = collection[i];
+                counter++;
             }
         }
 
@@ -89,5 +99,9 @@ public class CollectionServicImpl extends Collection implements ArrayService {
     public String get(int index) {
         if (index > collection.length) return "Exception in thread 'main' java.lang.ArrayIndexOutOfBoundsException";
         return collection[index];
+    }
+
+    private boolean checkIndext(int index) {
+        return (index < 0 || index > collection.length) ? false : true;
     }
 }
