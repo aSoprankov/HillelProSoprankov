@@ -1,15 +1,14 @@
+
 public interface CustomCollection<String> {
-
-boolean add(String str);
-boolean addAll(Collection strColl);
-boolean delete (int index);
-boolean delete (String str);
-String get(int index);
-boolean contains(String str);
-boolean clear();
-int size();
-boolean trim();
-
+    boolean add(String str);
+    boolean addAll(Collection strColl);
+    boolean delete (int index);
+    boolean delete (String str);
+    String get(int index);
+    boolean contains(String str);
+    boolean clear();
+    int size();
+    boolean trim();
 }
 
 на основе интерфейса - реализовать коллекцию на основе связного списка

@@ -1,11 +1,14 @@
 package homework.hw8;
 
 import java.util.Arrays;
+import java.util.Iterator;
+import java.util.function.Consumer;
 
-public class CollectionImpl extends Array implements Collection {
+public class CollectionImpl extends Array implements Collection, Iterable {
     public CollectionImpl(int capasity) {
         super(capasity);
     }
+
     public CollectionImpl() {
         super(10);
     }
@@ -99,5 +102,31 @@ public class CollectionImpl extends Array implements Collection {
     @Override
     public int size() {
         return getSize();
+    }
+
+
+    @Override
+    public Iterator<String> iterator() {
+        Iterator<String> iterator = new Iterator<String>() {
+            private int currentIndex = 0;
+
+            @Override
+            public boolean hasNext() {
+                return currentIndex < getSize() && getElementData()[currentIndex] != null;
+            }
+
+            @Override
+            public String next() {
+                return getElementData()[currentIndex++];
+            }
+
+            @Override
+            public void remove() {
+                delete(next());
+            }
+
+
+        };
+        return iterator;
     }
 }

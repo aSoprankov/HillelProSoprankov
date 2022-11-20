@@ -1,6 +1,6 @@
 package homework.hw8;
 
-class Array {
+public class Array {
     private String[] elementData;
     private int size = 0;
 
@@ -27,4 +27,5 @@ class Array {
     public void setSize(int size) {
         this.size = size;
     }
+
 }

@@ -1,71 +1,83 @@
 package homework.hw8;
 
-import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 
 public class Main {
     public static void main(String[] args) {
-        CollectionImpl csi = new CollectionImpl();
+        CollectionImpl ci = new CollectionImpl();
 
-        for (int i = 0; i < csi.getElementData().length; i++) {
-            csi.add(String.valueOf(i));
+        for (int i = 0; i < ci.getElementData().length; i++) {
+            ci.add(String.valueOf(i));
         }
 
-        boolean add = csi.add("i10");
+        boolean add = ci.add("i10");
         System.out.println("add 'i10': " + add);
         System.out.println("- - - - - - - - - - - - - - - - - - -");
 
-        boolean addByIndex = csi.add(5, "string i5");
+        boolean addByIndex = ci.add(5, "string i5");
         System.out.println("add in [5]: " + addByIndex);
 
-        addByIndex = csi.add(-5, "add");
+        addByIndex = ci.add(-5, "add");
         System.out.println("add in [-5]: " + addByIndex);
 
-        addByIndex = csi.add(25, "add");
+        addByIndex = ci.add(25, "add");
         System.out.println("add in [25]: " + addByIndex);
         System.out.println("- - - - - - - - - - - - - - - - - - -");
 
-        boolean delete = csi.delete("7");
+        boolean delete = ci.delete("7");
         System.out.println("delete '7': " + delete);
 
-        delete = csi.delete("value");
+        delete = ci.delete("value");
         System.out.println("delete 'value': " + delete);
         System.out.println("- - - - - - - - - - - - - - - - - - -");
 
-        String get = csi.get(7);
+        String get = ci.get(7);
         System.out.println("get from [7]: " + get);
 
-        get = csi.get(csi.size() - 1);
+        get = ci.get(ci.size() - 1);
         System.out.println("get from [size - 1]: " + get);
 
-        get = csi.get(csi.size());
+        get = ci.get(ci.size());
         System.out.println("get from [size]: " + get);
         System.out.println("- - - - - - - - - - - - - - - - - - -");
 
-        boolean contain = csi.contain("i5");
+        boolean contain = ci.contain("i5");
         System.out.println("contain 'i5': " + contain);
 
-        contain = csi.contain("value");
+        contain = ci.contain("value");
         System.out.println("contain 'value': " + contain);
         System.out.println("- - - - - - - - - - - - - - - - - - -");
 
-        boolean equals = csi.equals(csi.getElementData());
+        boolean equals = ci.equals(ci.getElementData());
         System.out.println("equal: " + equals);
 
-        String[] tmpTestArray = Arrays.copyOf(csi.getElementData(), csi.getSize() - 1);
+        String[] tmpTestArray = Arrays.copyOf(ci.getElementData(), ci.getSize() - 1);
 
-        equals = csi.equals(tmpTestArray);
+        equals = ci.equals(tmpTestArray);
         System.out.println("equal: " + equals);
         System.out.println("- - - - - - - - - - - - - - - - - - -");
 
-        int size = csi.size();
+        int size = ci.size();
         System.out.println("size: " + size);
 
-        boolean clear = csi.clear();
-        System.out.println("clear: " + clear);
+        //boolean clear = ci.clear();
+        //System.out.println("clear: " + clear);
 
-        size = csi.size();
-        System.out.println("size: " + size);
-        System.out.println("- - - - - - - - - - - - - - - - - - -");
+        //size = ci.size();
+        //System.out.println("size: " + size);
+        //System.out.println("- - - - - - - - - - - - - - - - - - -");
+
+        Iterator<String> iterator = ci.iterator();
+
+        while (iterator.hasNext()) {
+            String string = iterator.next();
+
+            //if (string.equals("4"))
+                //iterator.remove();
+
+            System.out.print(string + " ");
+        }
+
     }
 }
