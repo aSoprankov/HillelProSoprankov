@@ -5,7 +5,7 @@ public abstract class DisplayOddNumbers {
         System.out.print("""
                 \s
                 TASK 1. Use a for loop to display odd numbers from 1 to 99.\s
-                Array: \040""");
+                org.example.collection.Array: \040""");
         int[] values = new int[100];
 
         for (int value : values) {
