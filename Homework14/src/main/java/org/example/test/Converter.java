@@ -9,9 +9,8 @@ public class Converter {
         Arrays.setAll(S_BUILDERS, a -> new StringBuilder());
     }
 
-    public StringBuilder[] convertingValue(String[] strings) {
+    public void convertingValue(String[] strings) {
         Arrays.stream(strings).forEach(this::addString);
-        return S_BUILDERS;
     }
 
     private void addString(String s) {
