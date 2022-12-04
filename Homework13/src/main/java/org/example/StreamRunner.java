@@ -9,11 +9,15 @@ import org.example.task.FilterStringCollection;
 
 public class StreamRunner {
     public static void main(String[] args) {
-        new ArithmeticMean().findArithmeticMean(List.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
+        double arithmetic = ArithmeticMean.findArithmeticMean(List.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
+        System.out.println("arithmetic mean: " + arithmetic);
 
-        new ChangeStringCollection().changeCollection(new String[]{"one", "two", "tree", "four", "five"});
+        List<ChangeStringCollection.Pair> lPair = ChangeStringCollection
+                .changeCollection(new String[]{"one", "two", "tree", "four", "five"});
+        System.out.println("List<Pair> " + lPair);
 
-        new FilterStringCollection()
+        List<String> lStrings = FilterStringCollection
                 .filterCollection(List.of("One", "two", "TREE", "four", "Five", "Six", "seven", "Eight", "nine"));
+        System.out.println(lStrings);
     }
 }

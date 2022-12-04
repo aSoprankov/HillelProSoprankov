@@ -21,7 +21,7 @@ public class Converter {
         }
     }
 
-    public void printable() {
+    public void printSymbol() {
         Arrays.stream(S_BUILDERS).forEach(System.out::println);
     }
 }

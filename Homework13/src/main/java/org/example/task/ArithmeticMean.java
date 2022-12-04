@@ -1,14 +1,11 @@
 package org.example.task;
 
 import java.util.List;
-import java.util.OptionalDouble;
 
-public class ArithmeticMean {
-    public void findArithmeticMean(List<Integer> lInteger) {
-        OptionalDouble average = lInteger.stream()
+public abstract class ArithmeticMean {
+    public static double findArithmeticMean(List<Integer> lInteger) {
+        return lInteger.stream()
                 .mapToInt(Integer::intValue)
-                .average();
-
-        System.out.println(average);
+                .average().getAsDouble();
     }
 }

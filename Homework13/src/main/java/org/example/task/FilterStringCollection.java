@@ -1,12 +1,15 @@
 package org.example.task;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class FilterStringCollection {
-    public void filterCollection(List<String> lStrings) {
+public abstract class FilterStringCollection {
+    public static List<String> filterCollection(List<String> lStrings) {
+        List<String> tmpList = new ArrayList<>();
         lStrings.stream()
                 .filter(s -> s.length() == 4)
                 .filter(s -> s.equals(s.toLowerCase()))
-                .forEach(s -> System.out.print(s + " "));
+                .forEach(tmpList::add);
+        return tmpList;
     }
 }
