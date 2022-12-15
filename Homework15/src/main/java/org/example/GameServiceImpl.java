@@ -1,68 +1,125 @@
 package org.example;
 
-import org.example.texture.PrinterTexture;
+import org.example.texture.CustomTexture;
+import org.example.texture.Texture;
 
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.Random;
 import java.util.Scanner;
 
 import static java.lang.System.*;
 
-public class GameServiceImpl implements GameService {
+public class GameServiceImpl extends Texture implements GameService {
+
     private final Scanner SCANNER = new Scanner(in);
-    private final PrinterTexture RESOURCE = new PrinterTexture();
-    private Player user;
+    private final CustomTexture PRINT_TEXTURE = new CustomTexture();
+    private final Player USER = new Player();
+    private final String FILE_NAME = "Homework15/src/main/java/org/example/io/savedGame.txt";
 
-    public void startGame() {
-        out.print("Input ur name: ");
-        user = new Player(SCANNER.next());
-        out.print("Input number of rounds: ");
-        String string = SCANNER.next();
-        int numberOfRounds = 0;
+    public void startTheGame() throws IOException {
+        out.println(getMenuElement("welcome"));
+        int choice = checkUserInput(SCANNER.next());
 
-        try {
-            numberOfRounds = Integer.parseInt(string);
-        } catch (NumberFormatException ex) {
-            System.err.println(ex.getMessage() + "\nNumber of rounds can be only numbers");
-            System.exit(0);
+        switch (choice) {
+            case 1 -> createNewGame();
+            case 2 -> continueGame();
+            default -> throw new IllegalStateException("You can only use [1] or [2]");
         }
 
-        if (numberOfRounds < 1)
-            stopGame();
-
-        if (numberOfRounds > 99) {
-            out.println("Number of rounds cant be > 100");
-            startGame();
-        }
-
-        RESOURCE.printWelcome();
+        int counter = 0;
 
         do {
             startRound();
-            numberOfRounds--;
-        } while (numberOfRounds != 0);
+            counter++;
+        } while (counter != USER.getNumberOfRounds());
         stopGame();
     }
 
-    public void startRound() {
-        determinateRoundWinner(userTurn(), compTurn());
+    public void createNewGame() {
+        out.println(getMenuElement("name"));
+        USER.setName(SCANNER.next());
+
+        out.println(getMenuElement("number of rounds"));
+        int numberOfRounds = checkUserInput(SCANNER.next());
+        USER.setNumberOfRounds(numberOfRounds);
+
+        if (numberOfRounds == 0) stopGame();
+        if (numberOfRounds < 0) throw new NumberFormatException();
+    }
+
+    public void saveGame() throws IOException {
+        OutputStream fileOutputStream = new FileOutputStream(FILE_NAME);
+
+        fileOutputStream.write(USER.getPlayerDate().getBytes(StandardCharsets.UTF_8));
+
+        fileOutputStream.close();
+        exit(0);
+    }
+
+    public void continueGame() throws IOException {
+        if (new File(FILE_NAME).length() != 0) {
+            InputStream is = new FileInputStream(FILE_NAME);
+
+            StringBuilder string = new StringBuilder();
+            int size = is.available();
+
+            for (int i = 0; i < size; i++) {
+                string.append((char) is.read());
+            }
+
+            String[] sTest = string.toString().split("&");
+            int[] score = new int[3];
+
+            for (int i = 0; i < score.length; i++) {
+                score[i] = Integer.parseInt(sTest[i + 2]);
+            }
+
+            USER.setName(sTest[0]);
+            USER.setScore(score);
+            USER.setNumberOfRounds(Integer.parseInt(sTest[1]) - USER.getScore()[0]);
+
+            is.close();
+        } else {
+            out.println(getMenuElement("no saves"));
+            int userChoice = checkUserInput(SCANNER.next());
+
+            switch (userChoice) {
+                case 1 -> startTheGame();
+                case 2 -> exit(0);
+                default -> throw new IllegalStateException("Unexpected value: " + userChoice);
+            }
+        }
+    }
+
+    public void stopGame() {
+        PRINT_TEXTURE.printGameOver(USER.getScore());
+
+        try {
+            new FileOutputStream(FILE_NAME, false);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        exit(0);
+    }
+
+    public void startRound() throws IOException {
+        out.println(getMenuElement("menu"));
+        int userChoice = checkUserInput(SCANNER.next());
+
+        switch (userChoice) {
+            case 1 -> {
+                out.println(getMenuElement("shape"));
+                determinateRoundWinner(userTurn(), compTurn());
+            }
+            case 2 -> saveGame();
+            case 3 -> exit(0);
+            default -> throw new IllegalStateException("Unexpected value: " + userChoice);
+        }
     }
 
     public int userTurn() {
-        RESOURCE.printChoiceMenu();
-        String string = SCANNER.next();
-        int userTurn = 0;
-
-        try {
-            userTurn = Integer.parseInt(string);
-        } catch (NumberFormatException ex) {
-            System.err.println(ex.getMessage() + "\nInput can be 1, 2, 3 or 0");
-            System.exit(0);
-        }
-
-        if (userTurn == 0)
-            stopGame();
-
-        return userTurn - 1;
+        return checkUserInput(SCANNER.next()) - 1;
     }
 
     public int compTurn() {
@@ -75,18 +132,25 @@ public class GameServiceImpl implements GameService {
 
         try {
             result = roundResult[userShape][compShape];
-        } catch (ArrayIndexOutOfBoundsException ex) {
-            System.err.println(ex.getMessage() + "\nInput can be 1, 2, 3 or 0");
-            System.exit(0);
+        } catch (IllegalArgumentException ex) {
+            err.println(ex.getMessage());
+            exit(0);
         }
 
-        RESOURCE.printShape(userShape, compShape);
-        RESOURCE.printWinner(result);
-        user.updateScore(result);
+        PRINT_TEXTURE.printShape(userShape, compShape);
+        PRINT_TEXTURE.printWinner(result);
+        USER.updateScore(result);
     }
 
-    public void stopGame() {
-        RESOURCE.printGameOver(user.getSCORE());
-        exit(0);
+    private int checkUserInput(String string) {
+        int tmpValue = 0;
+
+        try {
+            tmpValue = Integer.parseInt(string);
+        } catch (NumberFormatException ex) {
+            err.println(ex.getMessage() + "\nYou can only use numbers");
+            exit(0);
+        }
+        return tmpValue;
     }
 }

@@ -1,22 +1,50 @@
 package org.example;
 
-public class Player {
-    private final String NAME;
-    private final int[] SCORE = {0, 0, 0};
+import static java.lang.System.*;
 
-    Player(String name) {
-        this.NAME = name;
+public class Player {
+    private String name;
+    private int numberOfRounds;
+    private final int[] score = new int[3];
+
+    public Player() {
+
     }
 
-    public int[] getSCORE() {
-        return SCORE;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getNumberOfRounds() {
+        return numberOfRounds;
+    }
+
+    public void setNumberOfRounds(int numberOfRound) {
+        this.numberOfRounds = numberOfRound;
+    }
+
+    public int[] getScore() {
+        return score;
+    }
+
+    public void setScore(int[] score) {
+        arraycopy(score, 0, this.score, 0, this.score.length);
+    }
+
+    public String getPlayerDate() {
+        return name.concat("&")
+                .concat(String.valueOf(numberOfRounds)).concat("&")
+                .concat(String.valueOf(score[0])).concat("&")
+                .concat(String.valueOf(score[1])).concat("&")
+                .concat(String.valueOf(score[2])).concat("&");
     }
 
     public void updateScore(int result) {
-        this.SCORE[0]++;
+        this.score[0]++;
+
         if (result > 0)
-            this.SCORE[1]++;
+            this.score[1]++;
         if (result < 0)
-            this.SCORE[2]++;
+            this.score[2]++;
     }
 }

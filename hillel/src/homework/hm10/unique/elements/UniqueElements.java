@@ -1,4 +1,4 @@
-package homework.hm10;
+package homework.hm10.unique.elements;
 
 import java.util.*;
 
@@ -52,20 +52,3 @@ public class UniqueElements {
         }
     }
 }
-
-class CustomObject {
-    private String letter;
-
-    CustomObject(String letter) {
-        this.letter = letter;
-    }
-
-    public String getLetter() {
-        return letter;
-    }
-
-    public String toString() {
-        return "{" + letter + "} ";
-    }
-}
-

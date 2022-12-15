@@ -1,17 +1,25 @@
 package org.example;
 
+import java.io.IOException;
+
 public interface GameService {
 
-    public void startGame();
+    void startTheGame() throws IOException;
 
-    public void startRound();
+    void createNewGame();
 
-    public int userTurn();
+    void saveGame() throws IOException;
 
-    public int compTurn();
+    void continueGame() throws IOException;
 
-    public void determinateRoundWinner(int userShape, int compShape);
+    void stopGame();
 
-    public void stopGame();
+    void startRound() throws IOException;
+
+    int userTurn() throws IOException;
+
+    int compTurn();
+
+    void determinateRoundWinner(int userShape, int compShape);
 
 }

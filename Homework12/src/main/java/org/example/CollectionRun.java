@@ -7,7 +7,6 @@ import java.util.Arrays;
 public class CollectionRun {
     public static void main(String[] args) {
         CollectionImpl ci = new CollectionImpl();
-        //org.example.collection.CollectionImpl ci2 = new org.example.collection.CollectionImpl(15);
 
         for (int i = 0; i < 10; i++) {
             ci.add(String.valueOf(i));
