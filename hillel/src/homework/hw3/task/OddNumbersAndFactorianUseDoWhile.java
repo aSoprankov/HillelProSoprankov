@@ -7,7 +7,7 @@ public class OddNumbersAndFactorianUseDoWhile {
         System.out.print("""
                 \s
                 TASK 4. Rewrite programs using a do - while loop.\s
-                org.example.collection.Array:\040""");
+                collection.com.soprankov.Array:\040""");
         int[] values = new int[100];
         int counter = 0;
 

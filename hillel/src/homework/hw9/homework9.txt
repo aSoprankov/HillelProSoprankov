@@ -1,7 +1,7 @@
 
 public interface CustomCollection<String> {
     boolean add(String str);
-    boolean addAll(org.example.collection.Collection strColl);
+    boolean addAll(collection.com.soprankov.Collection strColl);
     boolean delete (int index);
     boolean delete (String str);
     String get(int index);
