@@ -1,4 +1,4 @@
-package soprankov.service;
+package com.soprankov.service;
 
 import java.io.File;
 import java.io.IOException;

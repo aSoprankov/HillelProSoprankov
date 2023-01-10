@@ -1,6 +1,6 @@
-package soprankov.service.impl;
+package com.soprankov.service.impl;
 
-import soprankov.service.FileService;
+import com.soprankov.service.FileService;
 
 import java.io.File;
 import java.io.FileOutputStream;

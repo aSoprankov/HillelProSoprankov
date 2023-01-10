@@ -100,7 +100,7 @@
         <configuration>
           <archive>
             <manifest>
-              <mainClass>org.example.test.Runner</mainClass>
+              <mainClass>com.soprankov.ConverterRunner</mainClass>
             </manifest>
           </archive>
         </configuration>

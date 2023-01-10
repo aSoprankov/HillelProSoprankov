@@ -1,4 +1,4 @@
-package soprankov.service.exeption;
+package com.soprankov.service.exeption;
 
 public class JsonConversionFailed extends RuntimeException {
 }

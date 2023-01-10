@@ -1,6 +1,6 @@
-package soprankov.service.impl;
+package com.soprankov.service.impl;
 
-import soprankov.service.ConverterService;
+import com.soprankov.service.ConverterService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.yaml.snakeyaml.Yaml;

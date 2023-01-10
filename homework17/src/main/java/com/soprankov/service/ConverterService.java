@@ -1,4 +1,4 @@
-package soprankov.service;
+package com.soprankov.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 
